@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "707761366924",
+    "project_id": "inminiapplication",
+    "storage_bucket": "inminiapplication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:707761366924:android:e46473d387519d9a5998a9",
+        "android_client_info": {
+          "package_name": "com.es.inminiapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "707761366924-ea46jbonjdmjdlv3pd1cv6kvt2v6654a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjDpGHm4QyTkgiiYrBN7OJlsjVDdY-UH0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "707761366924-ea46jbonjdmjdlv3pd1cv6kvt2v6654a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

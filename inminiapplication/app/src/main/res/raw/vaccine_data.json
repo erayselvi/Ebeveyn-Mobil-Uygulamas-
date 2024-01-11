@@ -1,0 +1,68 @@
+{
+  "vaccines": [
+    {
+      "month": 0,
+      "vaccineList": [
+        {"name": "BCG (Tüberküloz)", "dose": 1},
+        {"name": "Hepatit B (HepB)", "dose": 1}
+      ]
+    },
+    {
+      "month": 1,
+      "vaccineList": [
+        {"name": "HBV (Hepatit B) - 2. doz", "dose": 2},
+        {"name": "BCG - 2. doz", "dose": 2},
+        {"name": "DTP (Difteri, Tetanos, Boğmaca) - 1. doz", "dose": 1},
+        {"name": "Hib (Hemofilus İnfluenza B) - 1. doz", "dose": 1},
+        {"name": "IPV (İnaktive Polio Aşısı) - 1. doz", "dose": 1}
+      ]
+    },
+    {
+      "month": 2,
+      "vaccineList": [
+        {"name": "HBV - 3. doz", "dose": 3},
+        {"name": "DTP - 2. doz", "dose": 2},
+        {"name": "Hib - 2. doz", "dose": 2},
+        {"name": "IPV - 2. doz", "dose": 2},
+        {"name": "Rotavirüs - 1. doz", "dose": 1}
+      ]
+    },
+    {
+      "month": 4,
+      "vaccineList": [
+        {"name": "DTP - 3. doz", "dose": 3},
+        {"name": "Hib - 3. doz", "dose": 3},
+        {"name": "IPV - 3. doz", "dose": 3},
+        {"name": "Rotavirüs - 2. doz", "dose": 2}
+      ]
+    },
+    {
+      "month": 6,
+      "vaccineList": [
+        {"name": "DTP - 4. doz", "dose": 4},
+        {"name": "Hib - 4. doz", "dose": 4},
+        {"name": "IPV - 4. doz", "dose": 4},
+        {"name": "Hepatit B - 4. doz", "dose": 4},
+        {"name": "Rotavirüs - 3. doz", "dose": 3}
+      ]
+    },
+    {
+      "month": 12,
+      "vaccineList": [
+        {"name": "Kızamık, Kabakulak, Kızamıkçık (KKK) - 1. doz", "dose": 1},
+        {"name": "Menenjit C - 1. doz", "dose": 1},
+        {"name": "Hepatit A - 1. doz", "dose": 1},
+        {"name": "KPA (Karma Kombine Aşısı) - 1. doz", "dose": 1}
+      ]
+    },
+    {
+      "month": 18,
+      "vaccineList": [
+        {"name": "DTP - 5. doz", "dose": 5},
+        {"name": "Hib - 5. doz", "dose": 5},
+        {"name": "KKK - 2. doz", "dose": 2},
+        {"name": "Hepatit A - 2. doz", "dose": 2}
+      ]
+    }
+  ]
+}

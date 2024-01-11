@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">inminiapplication</string>
+    <string name="inital_Time">YourInitialTimeValue</string>
+
+</resources>

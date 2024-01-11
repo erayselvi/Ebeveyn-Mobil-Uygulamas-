@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Inminiapplication"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".view.QuestionActivitiy"
+            android:exported="false" />
+        <activity
+            android:name=".view.MusicListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.LullablyListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.LullablyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.VaccineActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.ChildrenListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.BabyHeightActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BabyHeightPredictionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.AddNoteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.NotesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.AppActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.PersonalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.AddChildActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
