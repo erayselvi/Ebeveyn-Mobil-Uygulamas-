@@ -1,5 +1,6 @@
 package com.es.inminiapplication.repository
 
+import android.util.Log
 import com.es.inminiapplication.model.VaccineInfo
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -30,8 +31,12 @@ class FavoriteVaccinesManager(private val userId: String, private val childId: S
                 val result: QuerySnapshot? = task.result
                 result?.let {
                     for (document: DocumentSnapshot in it.documents) {
+                        Log.i("TAG","document id ${document.id}")
+                        Log.i("TAG","document id ${document.data}")
 
                         val vaccineInfo = document.toObject(VaccineInfo::class.java)
+                        val vaccine = vaccineInfo?.copy(id = document.id)
+                        Log.i("TAG","document id ${vaccine}")
                         vaccineInfo?.let { info -> vaccineInfos.add(info) }
                     }
                 }

@@ -1,9 +1,9 @@
 package com.es.inminiapplication.model
 
 data class VaccineInfo(
-    val name: String,
-    val dose: Int,
-    val description: String,
-    var date: String,
-    var isTaken: Boolean
+    val description: String = "",
+    val dose: Int = 0,
+    val id: String = "",
+    var Taken: Boolean = false,
+    val name: String = ""
 )
