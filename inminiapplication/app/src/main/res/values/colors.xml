@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_200">#B39DDB</color>
+    <color name="purple_500">#D1C4E9</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
@@ -9,10 +9,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="selectedColor">#FFBB86FC</color>
 
-    <color name="colorButtonFAQ">#3498db</color> <!-- Mavi renk örneği -->
-    <color name="colorButtonAllQuestions">#2ecc71</color> <!-- Yeşil renk örneği -->
-    <color name="colorButtonMyQuestions">#e74c3c</color> <!-- Kırmızı renk örneği -->
-    <color name="colorButtonAskQuestion">#f39c12</color> <!-- Turuncu renk örneği -->
+    <color name="colorButtonFAQ">#64B5F6</color> <!-- Mavi renk örneği -->
+    <color name="colorButtonAllQuestions">#81C784</color> <!-- Yeşil renk örneği -->
+    <color name="colorButtonMyQuestions">#FFB74D</color> <!-- Kırmızı renk örneği -->
+    <color name="colorButtonAskQuestion">#FF8A65</color> <!-- Turuncu renk örneği -->
 
     <color name="colorTurquoise">#4FC3F7</color>
     <color name="colorKeten">#c6e2ff</color>

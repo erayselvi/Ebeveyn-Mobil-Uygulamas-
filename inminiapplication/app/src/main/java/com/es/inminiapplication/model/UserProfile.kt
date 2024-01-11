@@ -3,5 +3,5 @@ data class UserProfile(
     val lastName: String?,
     val birthDate: String?,
     val gender: String?,
-    val profileImageUrl: String?
+    //val profileImageUrl: String?
 )

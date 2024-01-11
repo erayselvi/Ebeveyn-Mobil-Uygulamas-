@@ -1,6 +1,7 @@
 package com.es.inminiapplication.view.my
 
 import UserProfile
+import android.app.AlertDialog
 import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -71,7 +72,7 @@ class EditProfileActivity : AppCompatActivity() {
             val newGender = if (maleRadioButton.isChecked) "Erkek" else "Kadın"
 
             // Yeni bilgilerle bir UserProfile objesi oluştur
-            val updatedUserProfile = UserProfile(newFirstName, newLastName, newBirthDate, newGender, null)
+            val updatedUserProfile = UserProfile(newFirstName, newLastName, newBirthDate, newGender)
 
             // Firestore'daki Users koleksiyonundaki belgeyi güncelle
             updateUserProfile(updatedUserProfile)
@@ -84,6 +85,7 @@ class EditProfileActivity : AppCompatActivity() {
         val currentMonth = calendar.get(Calendar.MONTH)
         val currentDay = calendar.get(Calendar.DAY_OF_MONTH)
 
+        // Türkçe lokal kullanarak DatePickerDialog oluştur
         val datePickerDialog = DatePickerDialog(
             this,
             { _, year, month, day ->
@@ -97,7 +99,7 @@ class EditProfileActivity : AppCompatActivity() {
             currentDay
         )
 
-        // DatePickerDialog'u göstermeden önce, EditText içindeki tarih bilgisini al
+        // DatePickerDialog'u açmadan önce, EditText içindeki tarih bilgisini al
         val initialDate = datePicker.text.toString().split("/")
         val initialYear = initialDate[2].toInt()
         val initialMonth = initialDate[1].toInt() - 1  // Calendar.MONTH 0-11 aralığında olduğu için 1 çıkartıyoruz
@@ -129,6 +131,7 @@ class EditProfileActivity : AppCompatActivity() {
                 val lastName = documentSnapshot.getString("lastName")
                 val gender = documentSnapshot.getString("gender")
                 val date = documentSnapshot.getString("birthDate")
+
 
                 // EditText'lere doğru sırayla değerleri set et
                 Log.d("LoadUserProfile", "First Name: $firstName, Last Name: $lastName, Gender: $gender, Birth Date: $date")

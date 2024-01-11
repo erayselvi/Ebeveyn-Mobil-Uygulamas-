@@ -17,24 +17,24 @@ class AppActivity : AppCompatActivity() {
 
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigation)
         supportActionBar?.title = "ebebeveyn.com"
+
+
         // BottomNavigationView'daki seçenekleri dinleme
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_home -> {
-                    startActivity(Intent(this, AppActivity::class.java))
-                    return@setOnNavigationItemSelectedListener true
+                    // Burada bir şey yapmanıza gerek yok, çünkü zaten AppActivity açık
                 }
                 R.id.navigation_dashboard -> {
                     startActivity(Intent(this, HomeActivity::class.java))
-                    return@setOnNavigationItemSelectedListener true
                 }
                 R.id.navigation_notifications -> {
                     startActivity(Intent(this, MyActivity::class.java))
-                    return@setOnNavigationItemSelectedListener true
                 }
                 // Diğer menü öğeleri için aynı şekilde devam edebilirsiniz
                 else -> return@setOnNavigationItemSelectedListener false
             }
+            return@setOnNavigationItemSelectedListener true
         }
     }
     fun bookclicked(view : View){

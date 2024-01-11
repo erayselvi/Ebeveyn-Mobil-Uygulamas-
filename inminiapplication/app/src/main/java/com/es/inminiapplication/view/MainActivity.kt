@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityMainBinding.inflate(layoutInflater)
+        supportActionBar?.title = "ebebeveyn.com"
         val view = binding.root
         setContentView(view)
         auth= Firebase.auth

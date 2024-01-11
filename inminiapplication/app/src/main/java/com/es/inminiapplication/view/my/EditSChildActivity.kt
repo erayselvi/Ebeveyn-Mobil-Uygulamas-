@@ -1,22 +1,20 @@
-package com.es.inminiapplication.view.app
+package com.es.inminiapplication.view.my
 
-
-import android.content.ContentValues.TAG
+import android.content.ContentValues
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.es.inminiapplication.ChildListAdapter
 import com.es.inminiapplication.R
 import com.es.inminiapplication.model.Child
+import com.es.inminiapplication.view.app.VaccineActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-class ChildrenListActivity : AppCompatActivity() {
-
-    private lateinit var recyclerView: RecyclerView
+class EditSChildActivity : AppCompatActivity() {  private lateinit var recyclerView: RecyclerView
     private lateinit var childAdapter: ChildListAdapter
 
 
@@ -48,14 +46,13 @@ class ChildrenListActivity : AppCompatActivity() {
                 }
                 childAdapter.updateData(childList)
             }.addOnFailureListener { exception ->
-                Log.d(TAG, "Error getting documents: ", exception)
+                Log.d(ContentValues.TAG, "Error getting documents: ", exception)
             }
         }
         childAdapter.setOnItemClickListener(object : ChildListAdapter.OnItemClickListener {
             override fun onItemClick(child: Child) {
-                val intent = Intent(this@ChildrenListActivity, VaccineActivity::class.java)
-                intent.putExtra(VaccineActivity.CHILD_DOCUMENT_ID, child.firestoreId)
-                intent.putExtra(VaccineActivity.CHILD_NAME, child.name)
+                val intent = Intent(this@EditSChildActivity, EditChildActivity::class.java)
+                intent.putExtra(EditChildActivity.CHILD_DOCUMENT_ID, child.firestoreId)
                 startActivity(intent)
             }
         })

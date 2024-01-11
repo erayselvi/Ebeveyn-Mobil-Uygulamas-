@@ -6,20 +6,20 @@
     android:layout_margin="8dp"
     app:cardCornerRadius="20dp"
     app:cardElevation="4dp"
-    app:cardBackgroundColor="@color/purple_200"> <!-- Kartın arkaplan rengi -->
+    app:cardBackgroundColor="@color/colorFD"> <!-- Kartın arkaplan rengi -->
 
     <!-- Kartın içeriği -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorKeten"
+        android:layout_marginTop="10dp"
         android:padding="16dp"> <!-- Kartın kenarlığı (border) beyaz rengi -->
 
         <TextView
             android:id="@+id/titleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold" /> <!-- Yazı rengi turkuaz -->
 

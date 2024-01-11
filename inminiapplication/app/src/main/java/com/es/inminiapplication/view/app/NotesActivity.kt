@@ -30,7 +30,7 @@ class NotesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_notes)
-
+        supportActionBar?.title = "Notlarım"
         auth = Firebase.auth
         firestore = Firebase.firestore
 

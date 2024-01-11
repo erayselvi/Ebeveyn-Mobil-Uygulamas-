@@ -30,6 +30,7 @@ class AddChildActivity : AppCompatActivity() {
 
         auth = Firebase.auth
         firestore = Firebase.firestore
+        supportActionBar?.title = "Çocuk Ekle"
     }
 
     fun addchildclicker(view : View){
@@ -79,7 +80,7 @@ class AddChildActivity : AppCompatActivity() {
                     }
                 }
         }
-
+        finish()
     }
     fun showDatePicker(view: View) {
         val calendar = Calendar.getInstance()

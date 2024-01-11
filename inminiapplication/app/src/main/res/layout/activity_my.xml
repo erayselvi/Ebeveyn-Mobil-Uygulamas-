@@ -47,29 +47,119 @@
             android:textSize="16sp" />
 
         <!-- Profil Düzenle Butonu -->
-        <Button
-            android:id="@+id/editProfileButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_below="@id/infoTextView"
-            android:layout_marginStart="16dp"
-            android:text="Profil Düzenle" />
+    </RelativeLayout>
 
-        <!-- Çocuk Bilgileri Düzenle Butonu -->
-        <Button
-            android:id="@+id/editChildInfoButton"
-            android:layout_width="wrap_content"
+    <View
+        android:id="@+id/dividerView"
+        android:layout_width="match_parent"
+        android:layout_height="1.4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="18dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintTop_toBottomOf="@id/profileLayout" />
+
+    <!-- İlk Kart -->
+    <RelativeLayout
+        android:id="@+id/firstLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/purple_200"
+        app:layout_constraintTop_toTopOf="@id/dividerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dividerView"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="175dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_below="@id/infoTextView"
-            android:layout_toEndOf="@id/editProfileButton"
-            android:layout_marginStart="16dp"
-            android:text="Çocuk Bilgileri Düzenle" />
+            android:layout_gravity="start"
+            android:layout_margin="8dp"
+            android:elevation="4dp"
+            app:cardBackgroundColor="@color/purple_200"
+            app:cardCornerRadius="12dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:onClick="editprofile">
+
+                <TextView
+                    android:id="@+id/logoTextView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Profil Güncelle"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
 
     </RelativeLayout>
 
 
+    <!-- İkinci Kart -->
+    <RelativeLayout
+        android:id="@+id/secondLayout"
+        android:layout_width="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/firstLayout">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_margin="8dp"
+            android:elevation="4dp"
+            app:cardBackgroundColor="@color/purple_200"
+            app:cardCornerRadius="12dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:onClick="editchild">
+
+                <TextView
+                    android:id="@+id/logoTextView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Çocuklarım"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/dividerView2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/firstLayout" />
+    <View
+        android:id="@+id/dividerView3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/secondLayout" />
     <!-- BottomNavigationView -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"

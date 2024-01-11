@@ -12,7 +12,7 @@ class BabyHeightActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_baby_height)
-
+        supportActionBar?.title = "ebebeveyn.com"
         val buttonCalculate: Button = findViewById(R.id.buttonCalculate)
         val editTextMotherHeight: EditText = findViewById(R.id.editTextMotherHeight)
         val editTextFatherHeight: EditText = findViewById(R.id.editTextFatherHeight)

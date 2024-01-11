@@ -36,7 +36,7 @@ class LullablyActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lullably)
-
+        supportActionBar?.title = "ebebeveyn.com"
         startTimeField = findViewById<View>(R.id.textView1) as TextView
         endTimeField = findViewById<View>(R.id.textView2) as TextView
         seekbar = findViewById<View>(R.id.seekBar1) as SeekBar
