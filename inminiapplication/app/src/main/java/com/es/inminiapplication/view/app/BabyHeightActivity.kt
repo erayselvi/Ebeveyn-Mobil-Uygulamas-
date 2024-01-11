@@ -1,4 +1,4 @@
-package com.es.inminiapplication.view
+package com.es.inminiapplication.view.app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

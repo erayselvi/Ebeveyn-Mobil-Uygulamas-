@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MyActivity">
+
+    <RelativeLayout
+        android:id="@+id/profileLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        tools:context=".view.profile.MyActivity">
+
+        <!-- Profil Fotoğrafı -->
+        <ImageView
+            android:id="@+id/profileImageView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/default_profile_image"
+            android:background="@drawable/circle_background" />
+
+        <!-- Ad Soyad -->
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_below="@id/profileImageView"
+            android:text="Ad Soyad"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Kişisel Bilgiler -->
+        <TextView
+            android:id="@+id/infoTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_below="@id/nameTextView"
+            android:text="Kişisel Bilgiler"
+            android:textSize="16sp" />
+
+        <!-- Profil Düzenle Butonu -->
+        <Button
+            android:id="@+id/editProfileButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_below="@id/infoTextView"
+            android:layout_marginStart="16dp"
+            android:text="Profil Düzenle" />
+
+        <!-- Çocuk Bilgileri Düzenle Butonu -->
+        <Button
+            android:id="@+id/editChildInfoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_below="@id/infoTextView"
+            android:layout_toEndOf="@id/editProfileButton"
+            android:layout_marginStart="16dp"
+            android:text="Çocuk Bilgileri Düzenle" />
+
+    </RelativeLayout>
+
+
+    <!-- BottomNavigationView -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:itemIconTint="@null"
+        app:itemTextColor="@null"
+        app:menu="@menu/bottom_navigation_menu" />
+
+    <!-- Çıkış Yap Butonu -->
+    <ImageButton
+        android:id="@+id/exitButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_exit_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:onClick="exitButtonClicked" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

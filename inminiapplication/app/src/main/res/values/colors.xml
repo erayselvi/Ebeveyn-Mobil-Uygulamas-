@@ -7,5 +7,17 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="selectedColor">#FFC107</color>
+    <color name="selectedColor">#FFBB86FC</color>
+
+    <color name="colorButtonFAQ">#3498db</color> <!-- Mavi renk örneği -->
+    <color name="colorButtonAllQuestions">#2ecc71</color> <!-- Yeşil renk örneği -->
+    <color name="colorButtonMyQuestions">#e74c3c</color> <!-- Kırmızı renk örneği -->
+    <color name="colorButtonAskQuestion">#f39c12</color> <!-- Turuncu renk örneği -->
+
+    <color name="colorTurquoise">#4FC3F7</color>
+    <color name="colorKeten">#c6e2ff</color>
+    <color name="colorFD">#e8e8e8</color>
+
+
+
 </resources>

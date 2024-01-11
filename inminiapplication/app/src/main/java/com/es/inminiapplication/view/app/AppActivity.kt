@@ -1,10 +1,13 @@
-package com.es.inminiapplication.view
+package com.es.inminiapplication.view.app
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.es.inminiapplication.R
+import com.es.inminiapplication.view.HomeActivity
+import com.es.inminiapplication.view.LullablyActivity
+import com.es.inminiapplication.view.MyActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class AppActivity : AppCompatActivity() {
@@ -13,7 +16,7 @@ class AppActivity : AppCompatActivity() {
         setContentView(R.layout.activity_app)
 
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigation)
-
+        supportActionBar?.title = "ebebeveyn.com"
         // BottomNavigationView'daki seçenekleri dinleme
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
@@ -22,11 +25,11 @@ class AppActivity : AppCompatActivity() {
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.navigation_dashboard -> {
-                    startActivity(Intent(this, AddNoteActivity::class.java))
+                    startActivity(Intent(this, HomeActivity::class.java))
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.navigation_notifications -> {
-                    startActivity(Intent(this, AddNoteActivity::class.java))
+                    startActivity(Intent(this, MyActivity::class.java))
                     return@setOnNavigationItemSelectedListener true
                 }
                 // Diğer menü öğeleri için aynı şekilde devam edebilirsiniz

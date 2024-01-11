@@ -15,6 +15,24 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".view.home.FaqListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.home.FaqCategoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.home.FAQDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.home.FaqActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.MyActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.QuestionActivitiy"
             android:exported="false" />
         <activity
@@ -27,31 +45,31 @@
             android:name=".view.LullablyActivity"
             android:exported="false" />
         <activity
-            android:name=".view.VaccineActivity"
+            android:name=".view.app.VaccineActivity"
             android:exported="false" />
         <activity
-            android:name=".view.ChildrenListActivity"
+            android:name=".view.app.ChildrenListActivity"
             android:exported="false" />
         <activity
-            android:name=".view.BabyHeightActivity"
+            android:name=".view.app.BabyHeightActivity"
             android:exported="false" />
         <activity
             android:name=".BabyHeightPredictionActivity"
             android:exported="false" />
         <activity
-            android:name=".view.AddNoteActivity"
+            android:name=".view.app.AddNoteActivity"
             android:exported="false" />
         <activity
-            android:name=".view.NotesActivity"
+            android:name=".view.app.NotesActivity"
             android:exported="false" />
         <activity
-            android:name=".view.AppActivity"
+            android:name=".view.app.AppActivity"
             android:exported="false" />
         <activity
             android:name=".view.PersonalActivity"
             android:exported="false" />
         <activity
-            android:name=".view.AddChildActivity"
+            android:name=".view.app.AddChildActivity"
             android:exported="false" />
         <activity
             android:name=".view.MainActivity"

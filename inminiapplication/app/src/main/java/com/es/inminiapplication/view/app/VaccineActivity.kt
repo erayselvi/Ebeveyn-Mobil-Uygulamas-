@@ -1,14 +1,12 @@
-package com.es.inminiapplication.view
+package com.es.inminiapplication.view.app
 
 import android.os.Bundle
-
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.es.inminiapplication.R
 import com.es.inminiapplication.VaccineAdapter
-import com.es.inminiapplication.repository.VaccineRepository
 import com.es.inminiapplication.repository.VaccineViewModelFactory
 import com.es.inminiapplication.viewmodel.VaccineViewModel
 
@@ -32,8 +30,7 @@ class VaccineActivity : AppCompatActivity() {
         childDocumentId = intent.getStringExtra(CHILD_DOCUMENT_ID) ?: ""
         childName = intent.getStringExtra(CHILD_NAME) ?: ""
 
-        supportActionBar?.title = childName + "/Aşı Takvimi"
-
+        supportActionBar?.title = "$childName/Aşı Takvimi"
 
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -41,10 +38,13 @@ class VaccineActivity : AppCompatActivity() {
         // VaccineViewModel'i oluştururken childId'yi gönderin
         vaccineViewModel = ViewModelProvider(this, VaccineViewModelFactory(childDocumentId)).get(VaccineViewModel::class.java)
 
+        // Adapter'i oluştururken VaccineViewModel'i geçirin
+        val adapter = VaccineAdapter(vaccineViewModel)
+        recyclerView.adapter = adapter
 
+        // VaccineViewModel'in vaccineInfos değişikliklerini dinleyin ve adapter'ı güncelleyin
         vaccineViewModel.vaccineInfos.observe(this) { favoriteVaccineInfos ->
-            val adapter = VaccineAdapter(favoriteVaccineInfos)
-            recyclerView.adapter = adapter
+            adapter.submitList(favoriteVaccineInfos)
         }
     }
 }

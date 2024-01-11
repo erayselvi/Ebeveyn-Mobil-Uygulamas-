@@ -1,4 +1,4 @@
-package com.es.inminiapplication.view
+package com.es.inminiapplication.view.app
 
 
 import android.content.ContentValues.TAG
@@ -46,7 +46,6 @@ class ChildrenListActivity : AppCompatActivity() {
                         childList.add(child)
                     }
                 }
-
                 childAdapter.updateData(childList)
             }.addOnFailureListener { exception ->
                 Log.d(TAG, "Error getting documents: ", exception)

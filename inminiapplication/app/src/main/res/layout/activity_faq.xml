@@ -3,13 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.app.VaccineActivity">
+    android:padding="16dp"
+    tools:context=".view.home.FaqActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recyclerViewFAQ"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp"
-        tools:listitem="@layout/item_vaccine" />
+        android:clipToPadding="false"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp" />
 
 </RelativeLayout>
