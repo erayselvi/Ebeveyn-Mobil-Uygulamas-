@@ -21,23 +21,10 @@
             android:layout_height="wrap_content"
             android:padding="16dp">
 
-            <ImageView
-                android:id="@+id/imageViewDelete"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="8dp"
-                android:layout_marginStart="8dp"
-                android:src="@drawable/ic_delete"
-                android:clickable="true"
-                android:onClick="onDeleteButtonClick"
-            />
-
             <EditText
                 android:id="@+id/editTextFirstName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/imageViewDelete"
                 android:layout_marginTop="16dp"
                 android:hint="Ad"/>
 
@@ -100,4 +87,26 @@
                 android:text="Güncelle"/>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/imageViewDelete"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="330dp"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:onClick="onDeleteButtonClick"
+        android:src="@drawable/ic_delete" />
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="78dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardView" />
 </RelativeLayout>

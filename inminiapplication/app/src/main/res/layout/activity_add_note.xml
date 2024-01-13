@@ -11,13 +11,13 @@
     <EditText
         android:id="@+id/titleEditText"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="69dp"
         android:hint="Başlık" />
 
     <EditText
         android:id="@+id/contentEditText"
         android:layout_width="match_parent"
-        android:layout_height="94dp"
+        android:layout_height="377dp"
         android:layout_marginTop="8dp"
         android:hint="İçerik" />
 
@@ -27,5 +27,19 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Kaydet" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:layout_marginBottom="8dp"
+            android:visibility="visible" />
+
+    </RelativeLayout>
 
 </LinearLayout>

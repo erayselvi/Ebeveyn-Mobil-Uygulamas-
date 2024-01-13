@@ -6,9 +6,12 @@ import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.DatePicker
 import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
@@ -38,6 +41,7 @@ class EditProfileActivity : AppCompatActivity() {
     private lateinit var maleRadioButton: RadioButton
     private lateinit var femaleRadioButton: RadioButton
     private lateinit var buttonUpdate: Button
+    private lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         supportActionBar?.title = "Profil Bilgilerimi Güncelle"
@@ -54,6 +58,8 @@ class EditProfileActivity : AppCompatActivity() {
         maleRadioButton = findViewById(R.id.radioButtonMale)
         femaleRadioButton = findViewById(R.id.radioButtonFemale)
         buttonUpdate = findViewById(R.id.buttonUpdate)
+        progressBar = findViewById(R.id.progressBar)
+        progressBar.visibility = View.INVISIBLE
 
         // Tarih seçildiğinde DatePickerDialog'u aç
         datePicker.setOnClickListener {
@@ -61,10 +67,12 @@ class EditProfileActivity : AppCompatActivity() {
         }
 
         // Kullanıcının mevcut profil bilgilerini yükle
+        showProgressBar()
         loadUserProfile()
 
         // Güncelleme butonuna tıklama işlemi
         buttonUpdate.setOnClickListener {
+            showProgressBar()
             // Kullanıcının girdiği yeni bilgileri al
             val newFirstName = firstNameEditText.text.toString()
             val newLastName = lastNameEditText.text.toString()
@@ -100,13 +108,20 @@ class EditProfileActivity : AppCompatActivity() {
         )
 
         // DatePickerDialog'u açmadan önce, EditText içindeki tarih bilgisini al
-        val initialDate = datePicker.text.toString().split("/")
-        val initialYear = initialDate[2].toInt()
-        val initialMonth = initialDate[1].toInt() - 1  // Calendar.MONTH 0-11 aralığında olduğu için 1 çıkartıyoruz
-        val initialDay = initialDate[0].toInt()
+        if (!datePicker.text.isNullOrEmpty()) {
+            val initialDate = datePicker.text.toString().split("/")
+            val initialYear = initialDate[2].toInt()
+            val initialMonth =
+                initialDate[1].toInt() - 1  // Calendar.MONTH 0-11 aralığında olduğu için 1 çıkartıyoruz
+            val initialDay = initialDate[0].toInt()
 
-        // DatePickerDialog'u açıldığında, EditText içindeki tarihi seçili olarak göster
-        datePickerDialog.updateDate(initialYear, initialMonth, initialDay)
+            // DatePickerDialog'u açıldığında, EditText içindeki tarihi seçili olarak göster
+            datePickerDialog.updateDate(initialYear, initialMonth, initialDay)
+        }
+
+        // Eğer bir işlem yapılacaksa buraya ekleyebilirsiniz
+        // Örneğin, datePickerDialog.show() satırından önce.
+        // Eğer bir işlem yapmayacaksanız bu kısmı silebilirsiniz.
 
         datePickerDialog.show()
     }
@@ -148,6 +163,7 @@ class EditProfileActivity : AppCompatActivity() {
             Toast.makeText(this, "Kullanıcı bilgileri alınamadı", Toast.LENGTH_SHORT).show()
             Log.e("LoadUserProfile", "Belge alınırken hata oluştu", it)
         }
+        hideProgressBar()
     }
 
     private fun updateUserProfile(updatedUserProfile: UserProfile) {
@@ -158,11 +174,27 @@ class EditProfileActivity : AppCompatActivity() {
         val userRef = firestore.collection("Users").document(userId)
         userRef.set(updatedUserProfile, SetOptions.merge())
             .addOnSuccessListener {
+                hideProgressBar()
                 Toast.makeText(this, "Profil güncellendi", Toast.LENGTH_SHORT).show()
                 finish() // Aktiviteyi kapat
             }
             .addOnFailureListener {
+                hideProgressBar()
                 Toast.makeText(this, "Profil güncelleme hatası", Toast.LENGTH_SHORT).show()
             }
+    }
+
+    private fun showProgressBar() {
+        progressBar.visibility = View.VISIBLE
+        // Kullanıcının diğer işlemleri başlatmasını engellemek için gerekirse arka planı kapatabilirsiniz.
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+        )
+    }
+
+    private fun hideProgressBar() {
+        progressBar.visibility = View.INVISIBLE
+        window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
     }
 }

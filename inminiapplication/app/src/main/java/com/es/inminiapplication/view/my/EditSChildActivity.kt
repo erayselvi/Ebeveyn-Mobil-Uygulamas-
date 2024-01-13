@@ -54,6 +54,7 @@ class EditSChildActivity : AppCompatActivity() {  private lateinit var recyclerV
                 val intent = Intent(this@EditSChildActivity, EditChildActivity::class.java)
                 intent.putExtra(EditChildActivity.CHILD_DOCUMENT_ID, child.firestoreId)
                 startActivity(intent)
+                finish()
             }
         })
     }

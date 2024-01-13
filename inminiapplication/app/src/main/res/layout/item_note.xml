@@ -1,24 +1,48 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp">
 
-    <TextView
-        android:id="@+id/titleTextView"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Başlık"
-        android:textStyle="bold"
-        android:textSize="18sp"/>
+        android:gravity="end">
+
+        <TextView
+            android:id="@+id/txtNoteDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Note Date"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true" />
+
+    </RelativeLayout>
 
     <TextView
-        android:id="@+id/contentTextView"
+        android:id="@+id/txtNoteTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="İçerik"/>
+        android:text="Note Title"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
+    <TextView
+        android:id="@+id/txtNoteContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Note Content"
+        android:layout_marginTop="8dp" />
+
+    <ImageButton
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/delete_ico" />
 </LinearLayout>

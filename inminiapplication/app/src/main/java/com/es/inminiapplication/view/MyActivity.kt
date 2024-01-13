@@ -1,12 +1,15 @@
 package com.es.inminiapplication.view
 
+import android.content.Context
 import com.es.inminiapplication.view.my.EditProfileActivity
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
@@ -25,9 +28,15 @@ class MyActivity : AppCompatActivity() {
     private lateinit var genderTextView: TextView
     private lateinit var profileImageView: ImageView
     private lateinit var infoTextView: TextView
+
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var sharedPreferences: SharedPreferences
+
     private lateinit var firestore: FirebaseFirestore
     private lateinit var storage: FirebaseStorage
+
+    private lateinit var progressBar: ProgressBar
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,9 +46,15 @@ class MyActivity : AppCompatActivity() {
         //genderTextView = findViewById(R.id.genderTextView)
         profileImageView = findViewById(R.id.profileImageView)
         infoTextView = findViewById(R.id.infoTextView)
+
         firebaseAuth = FirebaseAuth.getInstance()
+        sharedPreferences = getSharedPreferences("auth", Context.MODE_PRIVATE)
+
         firestore = FirebaseFirestore.getInstance()
         storage = FirebaseStorage.getInstance()
+
+        progressBar = findViewById(R.id.progressBar)
+        progressBar.visibility = View.INVISIBLE
 
 
         loadUserProfile()
@@ -47,6 +62,10 @@ class MyActivity : AppCompatActivity() {
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigation)
         supportActionBar?.title = "ebebeveyn.com"
 
+        val exitButton = findViewById<ImageView>(R.id.exitButton)
+        exitButton.setOnClickListener {
+            exitButtonClicked()
+        }
 
         // Kullanıcı bilgilerini çek ve ekrana göster
 
@@ -74,6 +93,8 @@ class MyActivity : AppCompatActivity() {
 
 
     private fun loadUserProfile() {
+        showProgressBar()
+
         val currentUser = firebaseAuth.currentUser
         currentUser?.let { user ->
             val userId = user.uid
@@ -92,29 +113,50 @@ class MyActivity : AppCompatActivity() {
                     nameTextView.text = "$firstName $lastName"
                     infoTextView.text = "$gender | $date"
                     Log.i("TAG","$image")
-                    image.let{loadProfileImage(it.toString())}
+                    image.let { loadProfileImage(it.toString()) }
+                }
 
-                }
-                }
+                hideProgressBar()
+            }.addOnFailureListener {
+                hideProgressBar()
+                Toast.makeText(this@MyActivity, it.localizedMessage, Toast.LENGTH_LONG).show()
+            }
         }
     }
 
-    private fun loadProfileImage(imageUrl: String) {
-        if (imageUrl.isNotEmpty()) {
-            Log.i("isEmpty?","$imageUrl")
-            // Profil fotoğrafını yükleyip gösterme
-            val storageRef = storage.getReferenceFromUrl(imageUrl)
-            Glide.with(this)
-                .load(storageRef)
-                .placeholder(R.drawable.default_profile_image) // Varsayılan profil fotoğrafı
-                .into(profileImageView)
-        } else {
-            Log.i("isEmpty?","$imageUrl")
-            // Varsayılan profil fotoğrafını gösterme
-            profileImageView.setImageResource(R.drawable.default_profile_image)
-        }
-
+    private fun showProgressBar() {
+        progressBar.visibility = View.VISIBLE
     }
+
+    private fun hideProgressBar() {
+        progressBar.visibility = View.INVISIBLE
+    }
+
+    private fun loadProfileImage(imagePath: String) {
+        val storageRef = storage.getReferenceFromUrl(imagePath)
+
+        storageRef.downloadUrl
+            .addOnSuccessListener { uri ->
+                // İndirme URL'sini başarıyla aldık
+                val imageUrl = uri.toString()
+                Log.i("Download URL", imageUrl)
+
+                // Glide ile resmi gösterme
+                Glide.with(this)
+                    .load(imageUrl)
+                    .circleCrop()
+                    .placeholder(R.drawable.default_profile_image)
+                    .into(profileImageView)
+            }
+            .addOnFailureListener { exception ->
+                // İndirme URL'sini alırken hata oluştu
+                Log.e("Download URL", "Hata: ${exception.message}", exception)
+
+                // Varsayılan profil fotoğrafını gösterme
+                profileImageView.setImageResource(R.drawable.default_profile_image)
+            }
+    }
+
     fun editprofile(view : View){
         val intent = Intent(this@MyActivity, EditProfileActivity::class.java)
         startActivity(intent)
@@ -122,6 +164,19 @@ class MyActivity : AppCompatActivity() {
     fun editchild(view: View){
         val intent = Intent(this@MyActivity, EditSChildActivity::class.java)
         startActivity(intent)
+    }
+
+    fun exitButtonClicked() {
+        // FirebaseAuth ile çıkış yap
+        firebaseAuth.signOut()
+
+        // SharedPreferences'teki otomatik giriş bilgilerini temizle
+        sharedPreferences.edit().clear().apply()
+
+        // Giriş ekranına yönlendir
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finishAffinity()  // Şu anki aktiviteyi kapat
     }
 }
 

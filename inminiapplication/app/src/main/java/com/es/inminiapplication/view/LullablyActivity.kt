@@ -32,7 +32,7 @@ class LullablyActivity : AppCompatActivity() {
     private var myUri: String? = null
     private var start = 0
     private var length = 0
-    private var lullablyref = "gs://inminiapplication.appspot.com/dandini_dandini_dastana.mp3"
+    private var lullablyref = "gs://inminiapplication.appspot.com/lullably/dandini_dandini_dastana.mp3"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lullably)
