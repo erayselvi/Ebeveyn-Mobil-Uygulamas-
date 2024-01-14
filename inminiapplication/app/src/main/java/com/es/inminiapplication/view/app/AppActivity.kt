@@ -57,5 +57,10 @@ class AppActivity : AppCompatActivity() {
         val intent = Intent(this@AppActivity, LullablyActivity::class.java)
         startActivity(intent)
     }
+    fun lengthclicked(view: View){
+        val intent = Intent(this@AppActivity, LengthSChildActivity::class.java)
+        startActivity(intent)
+    }
+
 
 }

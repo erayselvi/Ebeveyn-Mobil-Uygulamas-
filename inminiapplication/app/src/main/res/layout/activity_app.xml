@@ -69,7 +69,7 @@ android:layout_height="match_parent">
                     android:layout_width="96dp"
                     android:layout_height="96dp"
                     android:scaleType="centerInside"
-                    android:src="@drawable/baseline_question_mark_24" />
+                    android:src="@drawable/questionico" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -181,6 +181,39 @@ android:layout_height="match_parent">
         </androidx.cardview.widget.CardView>
 
         <!-- Diğer CardView öğeleri -->
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="8dp"
+            android:elevation="4dp"
+            app:cardCornerRadius="24dp"
+            app:cardBackgroundColor="@color/purple_200">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:onClick="lengthclicked">
+
+                <ImageView
+                    android:id="@+id/logoImageView6"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ruler" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/logoImageView6"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp"
+                    android:text="Boy Haritam"
+                    android:textColor="@android:color/black" />
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
 
     </GridLayout>
 

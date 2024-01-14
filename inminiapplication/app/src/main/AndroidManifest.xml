@@ -16,6 +16,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".view.app.LengthAddActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.app.LengthSChildActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.app.LengthActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.my.EditChildActivity"
             android:exported="false" />
         <activity
