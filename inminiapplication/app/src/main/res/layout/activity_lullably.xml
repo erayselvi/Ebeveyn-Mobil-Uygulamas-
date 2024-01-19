@@ -7,35 +7,41 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    tools:context=".view.LullablyActivity" >
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="14dp"
-        android:onClick="forward"
-        android:src="@android:drawable/ic_media_ff" />
+    tools:context=".view.app.LullablyActivity" >
 
     <ImageButton
         android:id="@+id/imageButton4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/imageButton2"
-        android:layout_marginLeft="22dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="-1dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="45dp"
         android:layout_toRightOf="@+id/imageButton2"
         android:onClick="rewind"
         android:src="@android:drawable/ic_media_rew" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="51dp"
+        android:layout_marginBottom="65dp"
+        android:onClick="forward"
+        android:src="@android:drawable/ic_media_ff" />
 
     <ImageButton
         android:id="@+id/imageButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/imageButton1"
-        android:layout_marginLeft="14dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="0dp"
         android:layout_toRightOf="@+id/imageButton1"
         android:onClick="pause"
         android:src="@android:drawable/ic_media_pause" />
@@ -46,6 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/imageButton3"
         android:layout_marginLeft="24dp"
+        android:layout_marginTop="0dp"
         android:layout_toRightOf="@+id/imageButton3"
         android:onClick="play"
         android:src="@android:drawable/ic_media_play" />
@@ -62,6 +69,7 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
         android:layout_alignRight="@+id/imageButton3"
         android:layout_alignTop="@+id/seekBar1"
         android:text=""
@@ -83,6 +91,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="149dp"
+        android:visibility="invisible"
         android:onClick="x"
         android:text="Dandini dandini dastana" />
 
@@ -92,10 +101,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:visibility="invisible"
         android:layout_marginStart="86dp"
         android:layout_marginTop="227dp"
         android:onClick="y"
-        android:text="fıs fıs kayıkçı" />
+        android:text="fıs fıs kayıkçı"
+        />
 
     <ImageView
         android:id="@+id/imageView"

@@ -7,10 +7,9 @@ import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.es.inminiapplication.ChildListAdapter
+import com.es.inminiapplication.adapter.ChildListAdapter
 import com.es.inminiapplication.R
 import com.es.inminiapplication.model.Child
-import com.es.inminiapplication.view.app.VaccineActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 

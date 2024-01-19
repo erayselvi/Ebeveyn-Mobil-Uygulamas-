@@ -1,23 +1,21 @@
 package com.es.inminiapplication.view.app
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.es.inminiapplication.R
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-
 import com.github.mikephil.charting.charts.LineChart
-
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
-import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -33,6 +31,7 @@ private lateinit var firestore: FirebaseFirestore
 private lateinit var userId: String
 
 private lateinit var lineChart: LineChart
+private lateinit var totalLengthDifferenceTextView: TextView
 
 class LengthActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,6 +42,7 @@ class LengthActivity : AppCompatActivity() {
         childName = intent.getStringExtra(CHILD_NAME) ?: ""
         supportActionBar?.title="${childName} Boy Haritası"
         LengthAdd = findViewById(R.id.LengthAdd)
+        totalLengthDifferenceTextView = findViewById(R.id.totalLengthDifferenceTextView)
 
         lineChart = findViewById(R.id.lineChart)
 
@@ -63,20 +63,16 @@ class LengthActivity : AppCompatActivity() {
         }
     }
     private fun fetchAndDisplayLengthData() {
-        // Firestore'dan çocuğun boy bilgilerini çek
-        // Firestore sorgusuyla çocuğun boy bilgilerini al ve lineChart'a ekle
-        // Firestore sorgusu örnek olarak kullanılmalıdır, gerçek sorgu yapısını projenize uygun şekilde ayarlamalısınız.
-
-        // Firestore sorgusu örneği:
         firestore.collection("Users").document(userId).collection("Children")
             .document(childDocumentId)
             .collection("Lengths")
-            .orderBy("date") // Boy bilgilerini tarih sırasına göre sırala
+            .orderBy("date")
             .get()
             .addOnSuccessListener { documents ->
                 Log.i("Boy", "${documents}")
                 val entries = mutableListOf<Entry>()
-
+                var totalLengthDifference = 0f
+                var firstLength: Float? = null
                 for ((index, document) in documents.withIndex()) {
                     Log.i("Boy", "${document.data}")
 
@@ -85,12 +81,18 @@ class LengthActivity : AppCompatActivity() {
                         is String -> lengthData.toFloatOrNull() ?: 0f
                         else -> 0f
                     }
+                    if (firstLength == null) {
+                        firstLength = length
+                    }
+                    val normalizedLength = length - firstLength
+                    entries.add(Entry(index.toFloat(), normalizedLength))
 
-                    entries.add(Entry(index.toFloat(), length))
+                    // Boy farkını topla
+                    totalLengthDifference += normalizedLength
                 }
 
                 // LineChart için LineDataSet oluştur
-                val dataSet = LineDataSet(entries, "Boy Farkı")
+                val dataSet = LineDataSet(entries, "Boy Uzama Miktarı")
                 val lineData = LineData(dataSet)
 
                 // xAxis ayarları
@@ -100,20 +102,27 @@ class LengthActivity : AppCompatActivity() {
                 xAxis.setDrawGridLines(false) // x eksenindeki gridlines'ları kaldır
                 xAxis.setLabelCount(entries.size, true) // x eksenindeki etiket sayısını belirle
                 xAxis.textSize = 12f // x eksenindeki yazı boyutunu belirle
+                dataSet.valueTextSize = 16f
+
+                lineChart.setVisibleXRangeMaximum(15f) // Grafiğin sağ tarafından kırma
+                lineChart.setVisibleXRangeMinimum(15f) // Grafiğin sol tarafından kırma
+                val padding = 155f // İstediğiniz mesafeyi belirleyin
+                //lineChart.setViewPortOffsets(padding, 100f, padding, 100f)
 
                 // Grafik ayarları
                 lineChart.description.isEnabled = false
                 lineChart.data = lineData
                 lineChart.invalidate()
+
+                // Toplam boy farkını TextView'da göster
+                totalLengthDifferenceTextView.text = "Toplam Boy Farkı: $totalLengthDifference cm"
             }
             .addOnFailureListener { exception ->
                 // Hata durumunda buraya düşer
                 hideProgressBar()
-                Toast.makeText(this, "Boy bilgileri alınırken hata oluştu.", Toast.LENGTH_SHORT)
-                    .show()
+                Toast.makeText(this, "Boy bilgileri alınırken hata oluştu.", Toast.LENGTH_SHORT).show()
             }
     }
-
 
         companion object {
         const val CHILD_DOCUMENT_ID = "child_document_id"

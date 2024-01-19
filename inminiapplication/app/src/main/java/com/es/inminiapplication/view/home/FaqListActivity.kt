@@ -5,19 +5,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.es.inminiapplication.ChildListAdapter
 import com.es.inminiapplication.R
-import com.es.inminiapplication.VaccineAdapter
-import com.es.inminiapplication.model.Child
-import com.es.inminiapplication.model.FAQCategory
+import com.es.inminiapplication.adapter.FaqListAdapter
 import com.es.inminiapplication.model.FAQDocument
-import com.es.inminiapplication.repository.VaccineViewModelFactory
-import com.es.inminiapplication.view.app.VaccineActivity
-import com.es.inminiapplication.viewmodel.VaccineViewModel
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class FaqListActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.es.inminiapplication.view.home
+package com.es.inminiapplication.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.es.inminiapplication.R
-import com.es.inminiapplication.model.FAQCategory
 import com.es.inminiapplication.model.FAQDocument
 
 class FaqListAdapter(

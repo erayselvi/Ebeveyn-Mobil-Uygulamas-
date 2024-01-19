@@ -1,4 +1,4 @@
-package com.es.inminiapplication
+package com.es.inminiapplication.adapter
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.es.inminiapplication.R
 import com.es.inminiapplication.model.VaccineInfo
 import com.es.inminiapplication.viewmodel.VaccineViewModel
 

@@ -1,10 +1,8 @@
-package com.es.inminiapplication.view
+package com.es.inminiapplication.view.my
 
 import android.content.Context
-import com.es.inminiapplication.view.my.EditProfileActivity
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -12,10 +10,12 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.es.inminiapplication.R
+import com.es.inminiapplication.view.MainActivity
 import com.es.inminiapplication.view.app.AppActivity
-import com.es.inminiapplication.view.my.EditSChildActivity
+import com.es.inminiapplication.view.home.HomeActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore

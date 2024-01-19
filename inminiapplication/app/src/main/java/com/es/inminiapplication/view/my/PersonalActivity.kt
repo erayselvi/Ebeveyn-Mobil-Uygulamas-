@@ -1,15 +1,17 @@
-package com.es.inminiapplication.view
+package com.es.inminiapplication.view.my
 
 import android.app.DatePickerDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.RadioButton
 import android.widget.Toast
-import com.google.firebase.auth.FirebaseAuth
+import androidx.appcompat.app.AppCompatActivity
 import com.es.inminiapplication.databinding.ActivityPersonalBinding
 import com.es.inminiapplication.view.app.AddChildActivity
+import com.google.firebase.Timestamp  // Correct import
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
@@ -18,13 +20,12 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
-
 class PersonalActivity : AppCompatActivity() {
 
-
-    private lateinit var binding:ActivityPersonalBinding
+    private lateinit var binding: ActivityPersonalBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPersonalBinding.inflate(layoutInflater)
@@ -33,7 +34,7 @@ class PersonalActivity : AppCompatActivity() {
 
         auth = Firebase.auth
         firestore = Firebase.firestore
-
+        supportActionBar?.title = "Kişisel Bilgilerinizi Giriniz"
 
         val auth = FirebaseAuth.getInstance()
 
@@ -41,6 +42,7 @@ class PersonalActivity : AppCompatActivity() {
             finish()
         }
     }
+
     fun showDatePicker(view: View) {
         val calendar = Calendar.getInstance()
         val datePickerDialog = DatePickerDialog(
@@ -59,23 +61,8 @@ class PersonalActivity : AppCompatActivity() {
 
         datePickerDialog.show()
     }
-    fun completeClicker(view : View){
 
-
-        /*val userMap = hashMapOf<String, Any>()
-        userMap.put("userEmail",auth.currentUser!!.email!!)
-        userMap.put("name",binding.nameText.text.toString())
-        userMap.put("surname",binding.surnameText.text.toString())
-        firestore.collection("Users").add(userMap).addOnSuccessListener {
-
-            val intent = Intent(this@PersonalActivity,ChildActivity::class.java)
-            startActivity(intent)
-            finish()
-
-        }.addOnFailureListener {
-            Toast.makeText(this@PersonalActivity,it.localizedMessage,Toast.LENGTH_LONG).show()
-        }*/
-
+    fun completeClicker(view: View) {
         val currentUser = auth.currentUser
 
         val name = binding.nameText.text.toString()
@@ -93,11 +80,16 @@ class PersonalActivity : AppCompatActivity() {
         val gender = genderRadioButton.text.toString()
 
         val userMap = hashMapOf<String, Any>()
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale("tr"))
+        val selectedDate = dateFormat.parse(date)
+        val timestamp = Timestamp(selectedDate!!)
         userMap["userEmail"] = auth.currentUser!!.email!!
-        userMap["name"] = name
-        userMap["date"] = date
+        userMap["firstName"] = name
+        userMap["lastName"] = surname  // Corrected the field to use 'surname' instead of 'name'
+        userMap["date"] = timestamp
         userMap["gender"] = gender
-
+        userMap["profileImageUrl"] = "gs://inminiapplication.appspot.com/profile_photos/resim_2024-01-17_144000371.png"
+        Log.i("Kayit", "$userMap")
         if (currentUser != null) {
             firestore.collection("Users")
                 .document(currentUser.uid)

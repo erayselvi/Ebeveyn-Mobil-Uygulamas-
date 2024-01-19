@@ -2,20 +2,17 @@ package com.es.inminiapplication.view.app
 
 import android.app.DatePickerDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.Button
-import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.es.inminiapplication.R
 import com.es.inminiapplication.model.Length
-import com.es.inminiapplication.model.Note
-import com.es.inminiapplication.view.my.EditChildActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -23,6 +20,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.util.Date
 import java.util.Locale
 
 
@@ -66,13 +64,18 @@ class LengthAddActivity : AppCompatActivity() {
             val datePicker = datePickerText.text.toString()
 
             if (lengthvalue.isNotEmpty() && datePicker.isNotEmpty()) {
-                val length = Length(lengthvalue, datePicker)
+                val date = com.es.inminiapplication.util.DateUtils.getDateFromDateString(datePicker)
+                val length = Length(lengthvalue.toFloat(), date)
                 saveLength(length)
             } else {
                 hideProgressBar()
                 Toast.makeText(this, "Boy ve tarih bilgisi gereklidir.", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+    fun getDateFromDateString(dateString: String): Date {
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd") // Tarih formatına uygun olarak değiştirin
+        return dateFormat.parse(dateString) ?: throw IllegalArgumentException("Invalid date format")
     }
 
     private fun saveLength(length: Length) {

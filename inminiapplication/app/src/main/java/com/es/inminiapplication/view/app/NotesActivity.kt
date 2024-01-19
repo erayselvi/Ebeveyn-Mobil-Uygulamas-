@@ -7,7 +7,7 @@ import android.widget.Button
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.es.inminiapplication.NotesAdapter
+import com.es.inminiapplication.adapter.NotesAdapter
 import com.es.inminiapplication.R
 import com.es.inminiapplication.model.Note
 import com.google.firebase.Timestamp

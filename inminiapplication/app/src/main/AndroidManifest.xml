@@ -46,10 +46,10 @@
             android:name=".view.home.FaqActivity"
             android:exported="false" />
         <activity
-            android:name=".view.HomeActivity"
+            android:name=".view.home.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".view.MyActivity"
+            android:name=".view.my.MyActivity"
             android:exported="false" />
         <activity
             android:name=".view.QuestionActivitiy"
@@ -61,7 +61,7 @@
             android:name=".view.LullablyListActivity"
             android:exported="false" />
         <activity
-            android:name=".view.LullablyActivity"
+            android:name=".view.app.LullablyActivity"
             android:exported="false" />
         <activity
             android:name=".view.app.VaccineActivity"
@@ -85,7 +85,7 @@
             android:name=".view.app.AppActivity"
             android:exported="false" />
         <activity
-            android:name=".view.PersonalActivity"
+            android:name=".view.my.PersonalActivity"
             android:exported="false" />
         <activity
             android:name=".view.app.AddChildActivity"

@@ -13,6 +13,7 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import com.es.inminiapplication.databinding.ActivityMainBinding
 import com.es.inminiapplication.view.app.AppActivity
+import com.es.inminiapplication.view.my.PersonalActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase

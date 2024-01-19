@@ -5,9 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.es.inminiapplication.R
-import com.es.inminiapplication.view.HomeActivity
-import com.es.inminiapplication.view.LullablyActivity
-import com.es.inminiapplication.view.MyActivity
+import com.es.inminiapplication.view.home.HomeActivity
+import com.es.inminiapplication.view.my.MyActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class AppActivity : AppCompatActivity() {

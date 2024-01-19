@@ -8,7 +8,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.es.inminiapplication.ChildListAdapter
+import com.es.inminiapplication.adapter.ChildListAdapter
 import com.es.inminiapplication.R
 import com.es.inminiapplication.model.Child
 import com.google.firebase.auth.FirebaseAuth

@@ -1,4 +1,4 @@
-package com.es.inminiapplication.view.home
+package com.es.inminiapplication.adapter
 
 import android.util.Log
 import android.view.LayoutInflater

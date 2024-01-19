@@ -8,10 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.es.inminiapplication.R
+import com.es.inminiapplication.adapter.FaqCategoryAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.es.inminiapplication.model.FAQCategory
-import com.es.inminiapplication.view.app.VaccineActivity
 
 class FaqCategoryActivity : AppCompatActivity() {
 

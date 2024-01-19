@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.es.inminiapplication.R
-import com.es.inminiapplication.VaccineAdapter
+import com.es.inminiapplication.adapter.VaccineAdapter
 import com.es.inminiapplication.repository.VaccineViewModelFactory
 import com.es.inminiapplication.viewmodel.VaccineViewModel
 

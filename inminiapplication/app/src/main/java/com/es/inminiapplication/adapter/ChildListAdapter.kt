@@ -1,10 +1,11 @@
-package com.es.inminiapplication
+package com.es.inminiapplication.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.es.inminiapplication.R
 import com.es.inminiapplication.model.Child
 
 class ChildListAdapter(private val children: MutableList<Child>) :

@@ -1,8 +1,8 @@
 package com.es.inminiapplication.model
 
-import java.security.Timestamp
+import java.util.Date
 
-data class Length (
-    val length: String,
-    val date: String
+data class Length(
+    val length: Float, // Sayısal değer olarak tutmak istediğiniz için Float kullandım, eğer başka bir sayısal tip kullanmak istiyorsanız onu tercih edebilirsiniz
+    val date: Date
 )
